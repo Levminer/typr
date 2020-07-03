@@ -1,0 +1,154 @@
+body {
+	background: rgb(0, 0, 0);
+	background: linear-gradient(90deg, rgba(0, 0, 0, 1) 30%, rgba(42, 36, 36, 1) 100%);
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	overflow: hidden;
+}
+
+footer {
+	color: white;
+	width: 100%;
+	position: absolute;
+	right: 0;
+	bottom: 0px;
+	left: 0;
+	text-align: center;
+	padding: 1rem;
+}
+
+a:link {
+	text-decoration: none;
+	color: white;
+}
+
+a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+*:focus {
+	outline: none;
+}
+
+.select {
+	margin: 15px;
+	border: 1px solid white;
+	padding: 1rem;
+	border-radius: 28px;
+	width: 201px;
+	transition: 0.3s;
+}
+
+.select:hover {
+	background: rgb(0, 0, 0);
+	border: 1px solid white;
+	color: rgb(255, 255, 255);
+}
+
+#word_box {
+	font-size: 20px;
+	margin: 15px;
+	border: 1px solid white;
+	padding: 1rem;
+	border-radius: 28px;
+	width: 201px;
+	transition: 0.3s;
+	text-align: center;
+}
+
+/* buttons */
+#button {
+	background-color: white;
+	border-radius: 28px;
+	border: 1px solid white;
+	display: inline-block;
+	cursor: pointer;
+	color: black;
+	font-family: Arial;
+	font-size: 17px;
+	padding: 16px 31px;
+	text-decoration: none;
+	transition: 0.2s ease-in;
+}
+#button:hover {
+	background: rgb(0, 0, 0);
+	border: 1px solid white;
+	color: rgb(255, 255, 255);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr min-content;
+}
+
+#word_text {
+	position: relative;
+	top: 25px;
+}
+
+#score_text {
+	position: relative;
+	bottom: 25px;
+}
+
+#correct_text {
+	color: green;
+	position: relative;
+	left: 540px;
+	bottom: 25px;
+}
+
+#wrong_text {
+	color: red;
+	position: relative;
+	right: 540px;
+	bottom: 25px;
+}
+
+#time_text {
+	position: relative;
+	top: 20px;
+}
+
+#history_box {
+	position: relative;
+	left: 20px;
+	top: 250px;
+	margin: 15px;
+	border: 1px solid white;
+	padding: 1rem;
+	border-radius: 28px;
+	width: 600px;
+	transition: 0.3s;
+	text-align: center;
+	background-color: white;
+	color: black;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+#before_start {
+	display: visible;
+}
+
+#after_start {
+	display: none;
+}
+
+#l1 {
+	position: relative;
+	right: 60px;
+}
+
+#l2 {
+	position: relative;
+	left: 55px;
+}
+
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent; /* make scrollbar transparent */
+}
