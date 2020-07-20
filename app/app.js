@@ -10,6 +10,7 @@ let time
 let key
 let word_type
 
+let space = 0
 let starter = 0
 let score = 0
 let correct = 0
@@ -100,8 +101,11 @@ word_box.addEventListener("keypress", (k) => {
 		word_completed = word_box.value
 
 		if (k.key == " ") {
-			word_completed = word_completed.substring(1)
-			console.log(`-${word_completed}-`)
+			if (space !== 0) {
+				word_completed = word_completed.substring(1)
+				console.log(`-${word_completed}-`)
+			}
+			space++
 		}
 
 		if (current_word == word_completed) {
@@ -157,6 +161,7 @@ let restart = () => {
 	random = 0
 	current_word = 0
 	word_completed = 0
+	space = 0
 
 	time = 0
 	starter = 0
