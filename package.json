@@ -21,6 +21,6 @@
 		"electron-packager": "^15.0.0"
 	},
 	"dependencies": {
-		"fs": "0.0.1-security"
+		"discord-urpc": "^1.0.1"
 	}
 }

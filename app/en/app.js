@@ -164,9 +164,9 @@ let restart = () => {
 	correct = 0
 	wrong = 0
 
-	word_text.innerText = "Szó"
-	score_text.innerText = "Pontszám"
-	time_text.innerText = "Idő"
+	word_text.innerText = "Word"
+	score_text.innerText = "Score"
+	time_text.innerText = "Time"
 	correct_text.innerText = "0"
 	wrong_text.innerText = "0"
 
@@ -176,7 +176,7 @@ let restart = () => {
 }
 
 let history = () => {
-	let content = `Szavak: ${word_type} | Pontszám: ${score} Helyes: ${correct} Helytelen: ${wrong}`
+	let content = `Words: ${word_type} | Score: ${score} Correct: ${correct} Wrong: ${wrong}`
 
 	let filepath = "history.md"
 
@@ -207,9 +207,9 @@ let history = () => {
 	correct = 0
 	wrong = 0
 
-	word_text.innerText = "Szó"
-	score_text.innerText = "Pontszám"
-	time_text.innerText = "Idő"
+	word_text.innerText = "Word"
+	score_text.innerText = "Score"
+	time_text.innerText = "Time"
 	correct_text.innerText = "0"
 	wrong_text.innerText = "0"
 

@@ -1,5 +1,22 @@
 //preload
 const fs = require("fs")
+const DiscordRPC = require("discord-urpc")
+
+const uRPC = new DiscordRPC({ clientID: "734830504343240836", debug: true || false })
+uRPC.on("ready", () => {
+	const args = {
+		pid: process.pid,
+		activity: {
+			state: "Trying to write quickly...",
+			details: "Playing TYPR",
+			timestamps: {
+				start: new Date().getTime(),
+			},
+			instance: false,
+		},
+	}
+	uRPC.send("SET_ACTIVITY", args)
+})
 
 console.log("preload running!")
 

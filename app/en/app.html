@@ -20,23 +20,23 @@
 			<h1>TYPR</h1>
 
 			<h3>
-				1. Válaszd ki hogy milyen szavakat szeretnél és hogy mennyi idő álljon a rendelkezésdre.
+				1. Choose what words you want and how much time do you want.
 				<br />
-				2. Indítsd el a játékot majd kezd el írni a szót amit kaptál, amint leírtad a szót csak nyomj entert vagy spacet és már
-				kapod is következő szót.
+				2. Start the game and then start typing the word, as soon as you spell the word just press enter or space and you will get
+				the next word.
 				<br />
-				3. Amint lejárt az idő lent megjelenik az eredményed és újraindul a játék.
+				3. Once the time has elapsed, your result will be displayed below and the game will restart.
 			</h3>
 
 			<div id="before_start">
-				<label for="word_select" id="l1">Szavak beállítása</label>
-				<label for="time_select" id="l2"> Idő beállítása</label>
+				<label for="word_select" id="l1">Choose words</label>
+				<label for="time_select" id="l2">Choose time</label>
 				<br />
 				<select id="word_select" class="select">
-					<option value="0" selected="selected"> Magyar szavak </option>
-					<option value="1"> Magyar nevek </option>
-					<option value="2"> Angol szavak </option>
-					<option value="3"> Angol nevek </option>
+					<option value="0" selected="selected"> Hungarian words </option>
+					<option value="1"> Hungarian names </option>
+					<option value="2"> English words </option>
+					<option value="3"> English names </option>
 				</select>
 				<select id="time_select" class="select">
 					<option value="0"> 30 </option>
@@ -47,29 +47,29 @@
 
 				<br />
 
-				<button type="submit" id="button" onclick="start()">Indítás</button>
+				<button type="submit" id="button" onclick="start()">Start</button>
 			</div>
 
 			<div id="after_start">
-				<button type="submit" id="button" onclick="restart()">Újraindítás</button>
+				<button type="submit" id="button" onclick="restart()">Restart</button>
 
-				<h1 id="time_text">Idő</h1>
-				<h2 id="word_text">Szó</h2>
+				<h1 id="time_text">Time</h1>
+				<h2 id="word_text">Word</h2>
 
 				<input type="text" id="word_box" name="word_box" spellcheck="false" autocomplete="off" />
 
 				<div class="grid">
 					<h2 id="correct_text">0</h2>
-					<h2 id="score_text">Pontszám</h2>
+					<h2 id="score_text">Score</h2>
 					<h2 id="wrong_text">0</h2>
 				</div>
 			</div>
-			<textarea disabled id="history_box" cols="30" rows="10">Itt fognak megjelenni az eredményeid</textarea>
+			<textarea disabled id="history_box" cols="30" rows="10">Your results will appear here</textarea>
 		</div>
 
 		<footer>
 			<h3>
-				Készítette: <a href="https://www.levminer.me">Levminer</a> - 1.1.0 - Forráskód:
+				Created by: <a href="https://www.levminer.me">Levminer</a> - 1.0.0 - Source code:
 				<a href="https://github.com/Levminer/typr">GitHub</a>
 			</h3>
 		</footer>

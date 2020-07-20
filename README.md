@@ -10,7 +10,9 @@
 
 - electron
 - electron-packager
+
 - fs
+- discord-rich-presence
 
 # Words used
 
