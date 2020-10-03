@@ -16,7 +16,7 @@
 
 # Words used
 
--   Check out src/readme.me
+-   Check out `src/readme.md`
 
 # License
 

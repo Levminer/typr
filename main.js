@@ -40,23 +40,34 @@ let createWindow = () => {
 	window0.loadFile("./app/landing/index.html")
 	window1.loadFile("./app/hu/index.html")
 	window2.loadFile("./app/en/index.html")
+
+	window0.on("close", () => {
+		app.quit()
+	})
+
+	window1.on("close", () => {
+		app.quit()
+	})
+
+	window2.on("close", () => {
+		app.quit()
+	})
 }
 
 ipc.on("hu", () => {
 	window1.maximize()
 	window1.show()
-	window0.close()
+	window0.hide()
 })
 
 ipc.on("en", () => {
 	window2.maximize()
 	window2.show()
-	window0.close()
+	window0.hide()
 })
 
 app.whenReady().then(() => {
 	createWindow()
-
 	const template = [
 		{
 			label: "Fájl",
@@ -74,10 +85,14 @@ app.whenReady().then(() => {
 					label: "Nyelv váltás",
 					click: () => {
 						if (c2 == false) {
+							window1.maximize()
+							window2.maximize()
 							window2.show()
 							window1.hide()
 							c2 = true
 						} else {
+							window2.maximize()
+							window1.maximize()
 							window1.show()
 							window2.hide()
 							c2 = false
@@ -157,8 +172,4 @@ app.whenReady().then(() => {
 	app.on("activate", () => {
 		if (BrowserWindow.getAllWindows().length === 0) createWindow()
 	})
-})
-
-app.on("window-all-closed", () => {
-	if (process.platform !== "darwin") app.quit()
 })
