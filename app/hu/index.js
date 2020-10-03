@@ -10,6 +10,7 @@ let time
 let key
 let word_type
 
+let space = 0
 let starter = 0
 let score = 0
 let correct = 0
@@ -41,11 +42,17 @@ let start = () => {
 		key = chn
 		word_type = "Magyar nevek"
 	} else if (word_select == 2) {
+		key = hab
+		word_type = "Magyar ABC"
+	} else if (word_select == 3) {
 		key = cwe
 		word_type = "Angol szavak"
-	} else if (word_select == 3) {
+	} else if (word_select == 4) {
 		key = cen
-		word_type = "Angol nevek"
+		word_type = "ANgol nevek"
+	} else if (word_select == 5) {
+		key = eab
+		word_type = "Angol ABC"
 	}
 
 	before_start.style.display = "none"
@@ -97,7 +104,7 @@ let start_timer = () => {
 
 word_box.addEventListener("keypress", (k) => {
 	if (k.key == "Enter" || k.key == " ") {
-		word_completed = word_box.value
+		word_completed = word_box.value.toLowerCase()
 
 		if (k.key == " ") {
 			if (space !== 0) {
@@ -168,9 +175,9 @@ let restart = () => {
 	correct = 0
 	wrong = 0
 
-	word_text.innerText = "Word"
-	score_text.innerText = "Score"
-	time_text.innerText = "Time"
+	word_text.innerText = "Szó"
+	score_text.innerText = "Pontszám"
+	time_text.innerText = "Idő"
 	correct_text.innerText = "0"
 	wrong_text.innerText = "0"
 
@@ -180,7 +187,7 @@ let restart = () => {
 }
 
 let history = () => {
-	let content = `Words: ${word_type} | Score: ${score} Correct: ${correct} Wrong: ${wrong}`
+	let content = `Szavak: ${word_type} | Pontszám: ${score} Helyes: ${correct} Helytelen: ${wrong}`
 
 	let filepath = "history.md"
 
@@ -211,9 +218,9 @@ let history = () => {
 	correct = 0
 	wrong = 0
 
-	word_text.innerText = "Word"
-	score_text.innerText = "Score"
-	time_text.innerText = "Time"
+	word_text.innerText = "Szó"
+	score_text.innerText = "Pontszám"
+	time_text.innerText = "Idő"
 	correct_text.innerText = "0"
 	wrong_text.innerText = "0"
 

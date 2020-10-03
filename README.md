@@ -1,6 +1,6 @@
 # TYPR
 
-- A simple typing game written in Electron
+-   A simple typing game written in Electron
 
 # Build
 
@@ -8,16 +8,16 @@
 
 # NPM Pacages used
 
-- electron
-- electron-packager
+-   electron
+-   electron-packager
 
-- fs
-- discord-rich-presence
+-   fs
+-   discord-urpc
 
 # Words used
 
-- Check out src/readme.me
+-   Check out src/readme.me
 
 # License
 
-- CC-BY-SA-4.0
+-   CC-BY-SA-4.0

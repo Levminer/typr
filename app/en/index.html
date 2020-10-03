@@ -4,16 +4,18 @@
 		<meta charset="UTF-8" />
 		<title>TYPR</title>
 		<!-- js -->
-		<script defer src="app.js"></script>
+		<script defer src="./index.js"></script>
 		<!-- words -->
-		<script defer src="../words/cwh.js"></script>
-		<script defer src="../words/chn.js"></script>
-		<script defer src="../words/cwe.js"></script>
-		<script defer src="../words/cen.js"></script>
+		<script defer src="../../words/cwh.js"></script>
+		<script defer src="../../words/chn.js"></script>
+		<script defer src="../../words/cwe.js"></script>
+		<script defer src="../../words/cen.js"></script>
+		<script defer src="../../words/eab.js"></script>
+		<script defer src="../../words/hab.js"></script>
 		<!-- css -->
-		<link rel="stylesheet" href="app.css" />
+		<link rel="stylesheet" href="./index.css" />
 		<!-- favicon -->
-		<link rel="shortcut icon" href="../img/icon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../../img/icon.ico" type="image/x-icon" />
 	</head>
 	<body oncopy="return false" oncut="return false" onpaste="return false">
 		<div class="main">
@@ -22,8 +24,8 @@
 			<h3>
 				1. Choose what words you want and how much time do you want.
 				<br />
-				2. Start the game and then start typing the word, as soon as you spell the word just press enter or space and you will get
-				the next word.
+				2. Start the game and then start typing the word, as soon as you spell the word just press enter or space and you will get the next
+				word.
 				<br />
 				3. Once the time has elapsed, your result will be displayed below and the game will restart.
 			</h3>
@@ -33,16 +35,18 @@
 				<label for="time_select" id="l2">Choose time</label>
 				<br />
 				<select id="word_select" class="select">
-					<option value="0" selected="selected"> Hungarian words </option>
-					<option value="1"> Hungarian names </option>
-					<option value="2"> English words </option>
-					<option value="3"> English names </option>
+					<option value="0" selected="selected">Hungarian words</option>
+					<option value="1">Hungarian names</option>
+					<option value="2">Hungarian alphabet</option>
+					<option value="3">English words</option>
+					<option value="4">English names</option>
+					<option value="5">English alphabet</option>
 				</select>
 				<select id="time_select" class="select">
-					<option value="0"> 30 </option>
-					<option value="1" selected="selected"> 60 </option>
-					<option value="2"> 90 </option>
-					<option value="3"> 120 </option>
+					<option value="0">30</option>
+					<option value="1" selected="selected">60</option>
+					<option value="2">90</option>
+					<option value="3">120</option>
 				</select>
 
 				<br />
@@ -69,7 +73,7 @@
 
 		<footer>
 			<h3>
-				Created by: <a href="https://www.levminer.me">Levminer</a> - 1.0.0 - Source code:
+				Created by: <a href="https://www.levminer.com">Levminer</a> - 1.3.0 - Source code:
 				<a href="https://github.com/Levminer/typr">GitHub</a>
 			</h3>
 		</footer>

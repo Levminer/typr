@@ -10,7 +10,6 @@ let time
 let key
 let word_type
 
-let space = 0
 let starter = 0
 let score = 0
 let correct = 0
@@ -37,16 +36,22 @@ let start = () => {
 
 	if (word_select == 0) {
 		key = cwh
-		word_type = "Magyar szavak"
+		word_type = "Hungarian words"
 	} else if (word_select == 1) {
 		key = chn
-		word_type = "Magyar nevek"
+		word_type = "Hungarian names"
 	} else if (word_select == 2) {
-		key = cwe
-		word_type = "Angol szavak"
+		key = hab
+		word_type = "Hungarian alphabet"
 	} else if (word_select == 3) {
+		key = cwe
+		word_type = "English words"
+	} else if (word_select == 4) {
 		key = cen
-		word_type = "Angol nevek"
+		word_type = "English names"
+	} else if (word_select == 5) {
+		key = eab
+		word_type = "English alphabet"
 	}
 
 	before_start.style.display = "none"
@@ -98,7 +103,9 @@ let start_timer = () => {
 
 word_box.addEventListener("keypress", (k) => {
 	if (k.key == "Enter" || k.key == " ") {
-		word_completed = word_box.value
+		word_completed = word_box.value.toLowerCase()
+
+		console.log(word_completed)
 
 		if (k.key == " ") {
 			if (space !== 0) {
@@ -169,9 +176,9 @@ let restart = () => {
 	correct = 0
 	wrong = 0
 
-	word_text.innerText = "Szó"
-	score_text.innerText = "Pontszám"
-	time_text.innerText = "Idő"
+	word_text.innerText = "Word"
+	score_text.innerText = "Score"
+	time_text.innerText = "Time"
 	correct_text.innerText = "0"
 	wrong_text.innerText = "0"
 
@@ -181,7 +188,7 @@ let restart = () => {
 }
 
 let history = () => {
-	let content = `Szavak: ${word_type} | Pontszám: ${score} Helyes: ${correct} Helytelen: ${wrong}`
+	let content = `Words: ${word_type} | Score: ${score} Correct: ${correct} Wrong: ${wrong}`
 
 	let filepath = "history.md"
 
@@ -212,9 +219,9 @@ let history = () => {
 	correct = 0
 	wrong = 0
 
-	word_text.innerText = "Szó"
-	score_text.innerText = "Pontszám"
-	time_text.innerText = "Idő"
+	word_text.innerText = "Word"
+	score_text.innerText = "Score"
+	time_text.innerText = "Time"
 	correct_text.innerText = "0"
 	wrong_text.innerText = "0"
 

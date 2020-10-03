@@ -38,7 +38,8 @@ a:visited {
 	padding: 1rem;
 	border-radius: 28px;
 	width: 201px;
-	transition: 0.3s;
+	transition: 0.2s ease-in;
+	cursor: pointer;
 }
 
 .select:hover {

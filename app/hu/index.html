@@ -4,16 +4,18 @@
 		<meta charset="UTF-8" />
 		<title>TYPR</title>
 		<!-- js -->
-		<script defer src="app.js"></script>
+		<script defer src="./index.js"></script>
 		<!-- words -->
-		<script defer src="../words/cwh.js"></script>
-		<script defer src="../words/chn.js"></script>
-		<script defer src="../words/cwe.js"></script>
-		<script defer src="../words/cen.js"></script>
+		<script defer src="../../words/cwh.js"></script>
+		<script defer src="../../words/chn.js"></script>
+		<script defer src="../../words/cwe.js"></script>
+		<script defer src="../../words/cen.js"></script>
+		<script defer src="../../words/eab.js"></script>
+		<script defer src="../../words/hab.js"></script>
 		<!-- css -->
-		<link rel="stylesheet" href="app.css" />
+		<link rel="stylesheet" href="./index.css" />
 		<!-- favicon -->
-		<link rel="shortcut icon" href="../img/icon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../../img/icon.ico" type="image/x-icon" />
 	</head>
 	<body oncopy="return false" oncut="return false" onpaste="return false">
 		<div class="main">
@@ -22,8 +24,8 @@
 			<h3>
 				1. Válaszd ki hogy milyen szavakat szeretnél és hogy mennyi idő álljon a rendelkezésdre.
 				<br />
-				2. Indítsd el a játékot majd kezd el írni a szót amit kaptál, amint leírtad a szót csak nyomj entert vagy spacet és már
-				kapod is következő szót.
+				2. Indítsd el a játékot majd kezd el írni a szót amit kaptál, amint leírtad a szót csak nyomj entert vagy spacet és már kapod is
+				következő szót.
 				<br />
 				3. Amint lejárt az idő lent megjelenik az eredményed és újraindul a játék.
 			</h3>
@@ -33,16 +35,18 @@
 				<label for="time_select" id="l2"> Idő beállítása</label>
 				<br />
 				<select id="word_select" class="select">
-					<option value="0" selected="selected"> Magyar szavak </option>
-					<option value="1"> Magyar nevek </option>
-					<option value="2"> Angol szavak </option>
-					<option value="3"> Angol nevek </option>
+					<option value="0" selected="selected">Magyar szavak</option>
+					<option value="1">Magyar nevek</option>
+					<option value="2">Magyar ABC</option>
+					<option value="3">Angol szavak</option>
+					<option value="4">Angol nevek</option>
+					<option value="5">Angol ABC</option>
 				</select>
 				<select id="time_select" class="select">
-					<option value="0"> 30 </option>
-					<option value="1" selected="selected"> 60 </option>
-					<option value="2"> 90 </option>
-					<option value="3"> 120 </option>
+					<option value="0">30</option>
+					<option value="1" selected="selected">60</option>
+					<option value="2">90</option>
+					<option value="3">120</option>
 				</select>
 
 				<br />
@@ -69,7 +73,7 @@
 
 		<footer>
 			<h3>
-				Készítette: <a href="https://www.levminer.me">Levminer</a> - 1.2.0 - Forráskód:
+				Készítette: <a href="https://www.levminer.com">Levminer</a> - 1.3.0 - Forráskód:
 				<a href="https://github.com/Levminer/typr">GitHub</a>
 			</h3>
 		</footer>

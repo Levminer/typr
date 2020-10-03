@@ -1,33 +1,59 @@
-const { app, BrowserWindow, Menu, shell, TouchBarScrubber } = require("electron")
+const electron = require("electron")
 const path = require("path")
+const { app, BrowserWindow, Menu, shell } = require("electron")
+const ipc = electron.ipcMain
 
-let mainWindow
-let c1 = 0
-let c2 = 0
+let window0
+let window1
+let window2
+let c0 = false
+let c1 = false
+let c2 = false
 
-function createWindow() {
-	// Create the browser window.
-
-	mainWindow = new BrowserWindow({
+let createWindow = () => {
+	window0 = new BrowserWindow({
 		webPreferences: {
 			preload: path.join(__dirname, "preload.js"),
 			nodeIntegration: true,
 		},
 	})
 
-	mainWindow.maximize()
-	/* 	mainWindow.resizable = false */
+	window1 = new BrowserWindow({
+		webPreferences: {
+			preload: path.join(__dirname, "preload.js"),
+			nodeIntegration: true,
+		},
+	})
 
-	//DEV
-	/* mainWindow.webContents.openDevTools() */
+	window2 = new BrowserWindow({
+		webPreferences: {
+			preload: path.join(__dirname, "preload.js"),
+			nodeIntegration: true,
+		},
+	})
 
-	// and load the index.html of the app.
-	mainWindow.loadFile("./app/app.html")
+	window0.maximize()
+
+	window1.hide()
+	window2.hide()
+
+	window0.loadFile("./app/landing/index.html")
+	window1.loadFile("./app/hu/index.html")
+	window2.loadFile("./app/en/index.html")
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+ipc.on("hu", () => {
+	window1.maximize()
+	window1.show()
+	window0.close()
+})
+
+ipc.on("en", () => {
+	window2.maximize()
+	window2.show()
+	window0.close()
+})
+
 app.whenReady().then(() => {
 	createWindow()
 
@@ -47,7 +73,16 @@ app.whenReady().then(() => {
 				{
 					label: "Nyelv váltás",
 					click: () => {
-						app.quit()
+						if (c2 == false) {
+							window2.show()
+							window1.hide()
+							c2 = true
+						} else {
+							window1.show()
+							window2.hide()
+							c2 = false
+						}
+						console.log(`LG ${c2}`)
 					},
 				},
 			],
@@ -58,14 +93,18 @@ app.whenReady().then(() => {
 				{
 					label: "Teljesképernyő",
 					click: () => {
-						if (c1 == 0) {
-							mainWindow.setFullScreen(true)
-							c1++
+						if (c0 == false) {
+							window0.setFullScreen(true)
+							window1.setFullScreen(true)
+							window2.setFullScreen(true)
+							c0 = true
 						} else {
-							mainWindow.setFullScreen(false)
-							c1--
+							window0.setFullScreen(false)
+							window1.setFullScreen(false)
+							window2.setFullScreen(false)
+							c0 = false
 						}
-						console.log(`FC ${c1}`)
+						console.log(`FC ${c0}`)
 					},
 				},
 				{
@@ -74,13 +113,18 @@ app.whenReady().then(() => {
 				{
 					label: "Fejlesztői eszközök",
 					click: () => {
-						if (c2 == 0) {
-							mainWindow.webContents.openDevTools()
-							c2++
+						if (c1 == false) {
+							window0.webContents.openDevTools()
+							window1.webContents.openDevTools()
+							window2.webContents.openDevTools()
+							c1 = true
 						} else {
-							mainWindow.webContents.closeDevTools()
-							c2--
+							window0.webContents.closeDevTools()
+							window1.webContents.closeDevTools()
+							window2.webContents.openDevTools()
+							c1 = false
 						}
+						console.log(`DT ${c1}`)
 					},
 				},
 			],
@@ -91,7 +135,7 @@ app.whenReady().then(() => {
 				{
 					label: "Névjegy",
 					click: () => {
-						shell.openExternal("https://www.levminer.me")
+						shell.openExternal("https://www.levminer.com")
 					},
 				},
 				{
@@ -110,19 +154,11 @@ app.whenReady().then(() => {
 	const menu = Menu.buildFromTemplate(template)
 	Menu.setApplicationMenu(menu)
 
-	app.on("activate", function () {
-		// On macOS it's common to re-create a window in the app when the
-		// dock icon is clicked and there are no other windows open.
+	app.on("activate", () => {
 		if (BrowserWindow.getAllWindows().length === 0) createWindow()
 	})
 })
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
-app.on("window-all-closed", function () {
+app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") app.quit()
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
