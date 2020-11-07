@@ -1,7 +1,12 @@
 const electron = require("electron")
 const path = require("path")
-const { app, BrowserWindow, Menu, shell } = require("electron")
+const { app, BrowserWindow, Menu, shell, dialog } = require("electron")
 const ipc = electron.ipcMain
+
+let typr_version = "1.4.0"
+let node_version = process.versions.node
+let chrome_version = process.versions.chrome
+let electron_version = process.versions.electron
 
 let window0
 let window1
@@ -58,12 +63,14 @@ ipc.on("hu", () => {
 	window1.maximize()
 	window1.show()
 	window0.hide()
+	c2 = false
 })
 
 ipc.on("en", () => {
 	window2.maximize()
 	window2.show()
 	window0.hide()
+	c2 = true
 })
 
 app.whenReady().then(() => {
@@ -145,12 +152,26 @@ app.whenReady().then(() => {
 			],
 		},
 		{
-			label: "Frissítés",
+			label: "Info",
 			submenu: [
 				{
 					label: "Névjegy",
 					click: () => {
-						shell.openExternal("https://www.levminer.com")
+						let window = BrowserWindow.getFocusedWindow()
+
+						dialog.showMessageBox(window, {
+							title: "TYPR",
+							buttons: ["Close"],
+							type: "info",
+							message: `TYPR: ${typr_version}
+
+							Node: ${node_version}
+							Electron: ${electron_version}
+							Chrome: ${chrome_version}
+
+							Created by: Levminer
+							`,
+						})
 					},
 				},
 				{

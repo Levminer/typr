@@ -1,5 +1,6 @@
 //node modules
 const fs = require("fs")
+const path = require("path")
 
 //variables
 let random
@@ -9,7 +10,9 @@ let timer
 let time
 let key
 let word_type
+let time_display
 
+let space = 0
 let starter = 0
 let score = 0
 let correct = 0
@@ -72,12 +75,16 @@ let start = () => {
 
 		if (time_select == 0) {
 			time = 30
+			time_display = 30
 		} else if (time_select == 1) {
 			time = 60
+			time_display = 60
 		} else if (time_select == 2) {
 			time = 90
+			time_display = 90
 		} else if (time_select == 3) {
 			time = 120
+			time_display = 120
 		}
 
 		starter++
@@ -169,6 +176,7 @@ let restart = () => {
 	current_word = 0
 	word_completed = 0
 	space = 0
+	time_display = 0
 
 	time = 0
 	starter = 0
@@ -188,23 +196,23 @@ let restart = () => {
 }
 
 let history = () => {
-	let content = `Words: ${word_type} | Score: ${score} Correct: ${correct} Wrong: ${wrong}`
+	let content = `Words: ${word_type} | Score: ${score} Correct: ${correct} Wrong: ${wrong} | Time: ${time_display}`
 
-	let filepath = "history.md"
+	const file_path = path.join(process.env.APPDATA, "/Levminer/TYPR")
 
-	fs.appendFileSync("history.md", `\n ${content}`, (err) => {
+	fs.appendFileSync(path.join(file_path, "history.md"), `\n ${content}`, (err) => {
 		if (err) {
-			console.log("bazd meg")
+			console.log("The history.md fle dont exist!")
 		} else {
-			console.log("kész")
+			console.log("The history.md fle exist!")
 		}
 	})
 
-	fs.readFile(filepath, "utf-8", (err, data) => {
+	fs.readFile(path.join(file_path, "history.md"), "utf-8", (err, data) => {
 		if (err) {
-			console.log("bazd meg2")
+			console.log("The history.md fle dont exist!")
 		} else {
-			console.log("kész2")
+			console.log("The history.md fle exist!")
 			history_box.value = data
 		}
 	})
@@ -212,6 +220,7 @@ let history = () => {
 	random = 0
 	current_word = 0
 	word_completed = 0
+	time_display = 0
 
 	time = 0
 	starter = 0

@@ -1,18 +1,11 @@
 # TYPR
 
--   A simple typing game written in Electron
+-   A simple typing game written in Electron and Node.js
 
-# Build
+# Development
 
-`electron-packager . TYPR --overwrite --platform=all --arch=x64 --icon=img/icon.icns --out=build`
-
-# NPM Pacages used
-
--   electron
--   electron-packager
-
--   fs
--   discord-urpc
+-   Start `npm run start`
+-   Build `npm run build`
 
 # Words used
 
